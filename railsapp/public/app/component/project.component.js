@@ -9,29 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = "saiten";
-        this.accounts = [
-            { name: "sai1", detail: "sai1 desu.yorosiku" },
-            { name: "sai2", detail: "sai2 desu.yorosiku" },
-            { name: "sai3", detail: "sai3 desu.yorosiku" }
+var ProjectComponent = (function () {
+    function ProjectComponent() {
+        this.projects = [
+            { title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
+            { title: "idea-son", detail: "sai2 desu.yorosiku" },
+            { title: "hacker", detail: "sai3 desu.yorosiku" }
         ];
     }
-    AppComponent = __decorate([
+    ProjectComponent = __decorate([
         core_1.Component({
-            selector: "my-app",
-            templateUrl: "app/component/app.component.html"
+            selector: "project",
+            templateUrl: "app/component/project.component.html"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ProjectComponent);
+    return ProjectComponent;
 }());
-exports.AppComponent = AppComponent;
-var Account = (function () {
-    function Account() {
+exports.ProjectComponent = ProjectComponent;
+var Project = (function () {
+    function Project() {
     }
-    return Account;
+    return Project;
 }());
-exports.Account = Account;
-//# sourceMappingURL=app.component.js.map
+exports.Project = Project;
+//# sourceMappingURL=project.component.js.map

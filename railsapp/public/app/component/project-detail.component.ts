@@ -1,11 +1,11 @@
 import { Component } from "@angular/core";
 
 @Component({
-  selector: "my-app",
-  templateUrl: "app/component/app.component.html"
+  selector: "my-project-detail",
+  templateUrl: "app/component/project-detail.component.html"
 })
 
-export class AppComponent {
+export class ProjectDetailComponent {
   title: string = "saiten";
   accounts: Account[] = [
     { name: "sai1", detail: "sai1 desu.yorosiku" },

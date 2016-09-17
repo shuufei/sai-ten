@@ -12,6 +12,9 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./component/app.component");
+var project_component_1 = require("./component/project.component");
+var project_detail_component_1 = require("./component/project-detail.component");
+var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -19,10 +22,13 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                forms_1.FormsModule
+                forms_1.FormsModule,
+                app_routing_1.routing
             ],
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                project_component_1.ProjectComponent,
+                project_detail_component_1.ProjectDetailComponent
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

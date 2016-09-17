@@ -1,3 +1,4 @@
 
 railsapp/public/node_modules/
 Gemfile.lock
+railsapp/vendor/

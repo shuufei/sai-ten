@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var ProjectDetailComponent = (function () {
+    function ProjectDetailComponent() {
         this.title = "saiten";
         this.accounts = [
             { name: "sai1", detail: "sai1 desu.yorosiku" },
@@ -18,20 +18,20 @@ var AppComponent = (function () {
             { name: "sai3", detail: "sai3 desu.yorosiku" }
         ];
     }
-    AppComponent = __decorate([
+    ProjectDetailComponent = __decorate([
         core_1.Component({
-            selector: "my-app",
-            templateUrl: "app/component/app.component.html"
+            selector: "my-project-detail",
+            templateUrl: "app/component/project-detail.component.html"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ProjectDetailComponent);
+    return ProjectDetailComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.ProjectDetailComponent = ProjectDetailComponent;
 var Account = (function () {
     function Account() {
     }
     return Account;
 }());
 exports.Account = Account;
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=project-detail.component.js.map
