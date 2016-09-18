@@ -22,7 +22,7 @@ import { routing } from "./app.routing";
   ],
   providers: [
     ProjectService
-  ]
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
