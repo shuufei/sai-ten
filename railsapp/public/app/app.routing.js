@@ -1,12 +1,13 @@
 "use strict";
 var router_1 = require("@angular/router");
-var app_component_1 = require("./component/app.component");
 var project_component_1 = require("./component/project.component");
 var project_detail_component_1 = require("./component/project-detail.component");
+var grading_component_1 = require("./component/grading.component");
 var appRoutes = [
     {
-        path: "app",
-        component: app_component_1.AppComponent
+        path: "",
+        redirectTo: "/projects",
+        pathMatch: "full"
     },
     {
         path: "projects",
@@ -17,9 +18,8 @@ var appRoutes = [
         component: project_detail_component_1.ProjectDetailComponent
     },
     {
-        path: "",
-        redirectTo: "/app",
-        pathMatch: "full"
+        path: "grading/:id",
+        component: grading_component_1.GradingComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

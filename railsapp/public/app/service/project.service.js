@@ -17,9 +17,9 @@ var ProjectService = (function () {
             { title: "hacker", detail: "sai3 desu.yorosiku" }
         ];
         this.members = [
-            { name: "sai1", detail: "sai1 desu.yorosiku" },
-            { name: "sai2", detail: "sai2 desu.yorosiku" },
-            { name: "sai3", detail: "sai3 desu.yorosiku" }
+            { id: 1, name: "sai1", detail: "sai1 desu.yorosiku" },
+            { id: 2, name: "sai2", detail: "sai2 desu.yorosiku" },
+            { id: 3, name: "sai3", detail: "sai3 desu.yorosiku" }
         ];
     }
     ProjectService.prototype.getProjects = function () {
@@ -28,6 +28,17 @@ var ProjectService = (function () {
     };
     ProjectService.prototype.getMembers = function (projectId) {
         return Promise.resolve(this.members);
+    };
+    ProjectService.prototype.getMember = function (id) {
+        var member;
+        member = this.members.find(function (member) { return member.id === id; });
+        console.log("member:");
+        console.log(member);
+        return Promise.resolve(member);
+        // console.log(this.members.find(member => member.id === id));
+        // return this.getMembers(1).then(
+        //   members => members.find(member => member.id === id)
+        // );
     };
     ProjectService = __decorate([
         core_1.Injectable(), 

@@ -22,7 +22,9 @@ var ProjectDetailComponent = (function () {
         this.projectService.getMembers(1).then(function (members) { return _this.members = members; });
     };
     ProjectDetailComponent.prototype.showMember = function (member) {
-        console.log(this.members);
+        console.log(member);
+        var link = ["/grading", member.id];
+        this.router.navigate(link);
     };
     ProjectDetailComponent = __decorate([
         core_1.Component({

@@ -4,11 +4,13 @@ import { Routes, RouterModule } from "@angular/router";
 import { AppComponent } from "./component/app.component";
 import { ProjectComponent } from "./component/project.component";
 import { ProjectDetailComponent } from "./component/project-detail.component";
+import { GradingComponent } from "./component/grading.component";
 
 const appRoutes: Routes = [
   {
-    path: "app",
-    component: AppComponent
+    path: "",
+    redirectTo: "/projects",
+    pathMatch: "full"
   },
   {
     path: "projects",
@@ -19,9 +21,8 @@ const appRoutes: Routes = [
     component: ProjectDetailComponent
   },
   {
-    path: "",
-    redirectTo: "/app",
-    pathMatch: "full"
+    path: "grading/:id",
+    component: GradingComponent
   }
 ];
 

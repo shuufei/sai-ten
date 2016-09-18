@@ -25,6 +25,8 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   showMember(member: Member): void {
-    console.log(this.members);
+    console.log(member);
+    let link = ["/grading", member.id];
+    this.router.navigate(link);
   }
 }
