@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from "./component/app.component";
 import { ProjectComponent } from "./component/project.component";
 import { ProjectDetailComponent } from "./component/project-detail.component";
+import { ProjectService } from "./service/project.service";
 
 import { routing } from "./app.routing";
 
@@ -19,6 +20,9 @@ import { routing } from "./app.routing";
     ProjectComponent,
     ProjectDetailComponent
   ],
+  providers: [
+    ProjectService
+  ]
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

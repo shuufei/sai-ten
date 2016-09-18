@@ -1,20 +1,34 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+
+import { ProjectService } from "./../service/project.service";
+import { Project } from "./../service/project.service";
 
 @Component({
   selector: "project",
   templateUrl: "app/component/project.component.html"
 })
 
-export class ProjectComponent {
-  projects: Project[] = [
-    { title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
-    { title: "idea-son", detail: "sai2 desu.yorosiku" },
-    { title: "hacker", detail: "sai3 desu.yorosiku" }
-  ];
+export class ProjectComponent implements OnInit {
+  projects: Project[];
 
-}
+  constructor(
+    private projectService: ProjectService,
+    private router: Router
+  ) {}
 
-export class Project {
-  title: string;
-  detail: string;
+  ngOnInit(): void {
+    console.log("oninit zone");
+    this.projectService.getProjects().then(
+      projects => this.projects = projects
+    );
+  }
+
+  showProjectDetail(project: Project): void {
+    console.log("hoghoge");
+    console.log(this.projects);
+    console.log(project);
+    let link = ["/project-detail"];
+    this.router.navigate(link);
+  }
 }

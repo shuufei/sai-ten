@@ -9,28 +9,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var project_service_1 = require("./../service/project.service");
 var ProjectComponent = (function () {
-    function ProjectComponent() {
-        this.projects = [
-            { title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
-            { title: "idea-son", detail: "sai2 desu.yorosiku" },
-            { title: "hacker", detail: "sai3 desu.yorosiku" }
-        ];
+    function ProjectComponent(projectService, router) {
+        this.projectService = projectService;
+        this.router = router;
     }
+    ProjectComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        console.log("oninit zone");
+        this.projectService.getProjects().then(function (projects) { return _this.projects = projects; });
+    };
+    ProjectComponent.prototype.showProjectDetail = function (project) {
+        console.log("hoghoge");
+        console.log(this.projects);
+        console.log(project);
+        var link = ["/project-detail"];
+        this.router.navigate(link);
+    };
     ProjectComponent = __decorate([
         core_1.Component({
             selector: "project",
             templateUrl: "app/component/project.component.html"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [project_service_1.ProjectService, router_1.Router])
     ], ProjectComponent);
     return ProjectComponent;
 }());
 exports.ProjectComponent = ProjectComponent;
-var Project = (function () {
-    function Project() {
-    }
-    return Project;
-}());
-exports.Project = Project;
 //# sourceMappingURL=project.component.js.map

@@ -1,21 +1,30 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+
+import { ProjectService } from "./../service/project.service";
+import { Member } from "./../service/project.service";
 
 @Component({
   selector: "my-project-detail",
   templateUrl: "app/component/project-detail.component.html"
 })
 
-export class ProjectDetailComponent {
+export class ProjectDetailComponent implements OnInit {
   title: string = "saiten";
-  accounts: Account[] = [
-    { name: "sai1", detail: "sai1 desu.yorosiku" },
-    { name: "sai2", detail: "sai2 desu.yorosiku" },
-    { name: "sai3", detail: "sai3 desu.yorosiku" }
-  ];
+  members: Member[];
 
-}
+  constructor(
+    private projectService: ProjectService,
+    private router: Router
+  ) {}
 
-export class Account {
-  name: string;
-  detail: string;
+  ngOnInit(): void {
+    this.projectService.getMembers(1).then(
+      members => this.members = members
+    );
+  }
+
+  showMember(member: Member): void {
+    console.log(this.members);
+  }
 }

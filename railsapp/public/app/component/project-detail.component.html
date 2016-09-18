@@ -29,6 +29,11 @@
   margin: 30%;
 }
 
+.my-card {
+  cursor: pointer;
+  cursor: hand;
+}
+
 .account-img {
   height: 160px;
   width: 100%;
@@ -60,11 +65,11 @@
 <div class="my-div">
 
 <div class="mdl-grid">
-<div class="demo-card-square mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col my-card" *ngFor="let account of accounts">
+<div class="demo-card-square mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col my-card" *ngFor="let member of members" (click)="showMember(member)">
   <div class="account-img"></div>
   <div class="mdl-card__actions mdl-card--border">
     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      {{account.name}}
+      {{member.name}}
     </a>
   </div>
 </div>

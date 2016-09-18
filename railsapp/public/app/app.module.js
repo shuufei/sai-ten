@@ -14,6 +14,7 @@ var forms_1 = require("@angular/forms");
 var app_component_1 = require("./component/app.component");
 var project_component_1 = require("./component/project.component");
 var project_detail_component_1 = require("./component/project-detail.component");
+var project_service_1 = require("./service/project.service");
 var app_routing_1 = require("./app.routing");
 var AppModule = (function () {
     function AppModule() {
@@ -29,6 +30,9 @@ var AppModule = (function () {
                 app_component_1.AppComponent,
                 project_component_1.ProjectComponent,
                 project_detail_component_1.ProjectDetailComponent
+            ],
+            providers: [
+                project_service_1.ProjectService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

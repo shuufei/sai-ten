@@ -9,29 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var router_1 = require("@angular/router");
+var project_service_1 = require("./../service/project.service");
 var ProjectDetailComponent = (function () {
-    function ProjectDetailComponent() {
+    function ProjectDetailComponent(projectService, router) {
+        this.projectService = projectService;
+        this.router = router;
         this.title = "saiten";
-        this.accounts = [
-            { name: "sai1", detail: "sai1 desu.yorosiku" },
-            { name: "sai2", detail: "sai2 desu.yorosiku" },
-            { name: "sai3", detail: "sai3 desu.yorosiku" }
-        ];
     }
+    ProjectDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.projectService.getMembers(1).then(function (members) { return _this.members = members; });
+    };
+    ProjectDetailComponent.prototype.showMember = function (member) {
+        console.log(this.members);
+    };
     ProjectDetailComponent = __decorate([
         core_1.Component({
             selector: "my-project-detail",
             templateUrl: "app/component/project-detail.component.html"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [project_service_1.ProjectService, router_1.Router])
     ], ProjectDetailComponent);
     return ProjectDetailComponent;
 }());
 exports.ProjectDetailComponent = ProjectDetailComponent;
-var Account = (function () {
-    function Account() {
-    }
-    return Account;
-}());
-exports.Account = Account;
 //# sourceMappingURL=project-detail.component.js.map

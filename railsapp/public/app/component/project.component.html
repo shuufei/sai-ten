@@ -1,5 +1,23 @@
-<ul>
-  <li *ngFor="let project of projects">
-    {{project.title}}
+<style>
+  .project-list {
+    margin-top: 0;
+    padding-left: 0;
+  }
+
+  .project-item {
+    border-top: solid #bfbcbc 1px;
+    cursor: pointer;
+    cursor: hand;
+  }
+
+  .project-item:last-child {
+    border-bottom: solid #bfbcbc 1px;
+  }
+</style>
+<ul class="demo-list-item project-list">
+  <li class="mdl-list__item project-item" *ngFor="let project of projects" (click)="showProjectDetail(project)">
+    <span class="mdl-list__item-primary-content">
+      {{project.title}}
+    </span>
   </li>
 </ul>
