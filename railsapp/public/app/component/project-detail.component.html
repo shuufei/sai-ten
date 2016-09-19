@@ -6,11 +6,13 @@
 }
 .project-detail-content {
   height: 1000;
-  padding: 5%;
 }
 
 .button-wrapper {
+  padding: 20px 0 ;
   width: 100%;
+  position: absolute;
+  left: -100px;
   text-align: center;
 }
 
@@ -75,14 +77,20 @@
 .active-tab {
   border-bottom: solid #f08585 2px;
 }
+
+.members-contents {
+  padding: 5%;
+}
 </style>
 
 <div class="project-detail-content">
-  <div class="button-wrapper">
-    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored my-button">結果をみる</button>
-  </div>
 
-<div class="mdl-grid">
+
+<div class="button-wrapper">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored my-button">結果をみる</button>
+</div>
+
+<div class="mdl-grid members-contents">
 <div class="demo-card-square mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col my-card" *ngFor="let member of members" (click)="showMember(member)">
   <div class="account-img"></div>
   <div class="mdl-card__actions mdl-card--border">
