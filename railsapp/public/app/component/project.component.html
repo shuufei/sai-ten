@@ -1,4 +1,9 @@
 <style>
+  .my-projects-title {
+    text-align: center;
+    color: gray;
+  }
+
   .project-list {
     margin-top: 0;
     padding-left: 0;
@@ -13,7 +18,34 @@
   .project-item:last-child {
     border-bottom: solid #bfbcbc 1px;
   }
+
+  .my-float-left {
+    float: left;
+  }
+
+  .my-breadcrumb {
+    margin: 2% 2%;
+  }
+
+  .my-breadcrumb-item {
+    color: gray;
+  }
+
+  .my-breadcrumb-link {
+    padding-top: 2px;
+    cursor: pointer;
+    cursor: hand;
+  }
 </style>
+
+<div class="my-breadcrumb">
+  <div class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProjectList()">ProjectList</div>
+  <i class="material-icons my-breadcrumb-item">navigate_next</i>
+</div>
+<div class="my-projects-title">
+  <h3>Projects List</h3>
+</div>
+
 <ul class="demo-list-item project-list">
   <li class="mdl-list__item project-item" *ngFor="let project of projects" (click)="showProjectDetail(project)">
     <span class="mdl-list__item-primary-content">

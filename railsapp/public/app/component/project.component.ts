@@ -31,4 +31,9 @@ export class ProjectComponent implements OnInit {
     let link = ["/project-detail", project.id];
     this.router.navigate(link);
   }
+
+  linkProjectList(): void {
+    let link = ["/projects"];
+    this.router.navigate(link);
+  }
 }

@@ -102,7 +102,33 @@
   margin: 0 auto;
   text-align: center;
 }
+
+.my-float-left {
+  float: left;
+}
+
+.my-breadcrumb {
+  margin: 2% 2%;
+}
+
+.my-breadcrumb-item {
+  color: gray;
+  display: block;
+}
+
+.my-breadcrumb-link {
+  padding-top: 2px;
+  cursor: pointer;
+  cursor: hand;
+}
 </style>
+
+<div class="my-breadcrumb">
+  <div class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProjectList()">ProjectList</div>
+  <i class="material-icons my-breadcrumb-item my-float-left">navigate_next</i>
+  <div *ngIf="project" class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProject(project.id)">{{project.title}}</div>
+  <i class="material-icons my-breadcrumb-item">navigate_next</i>
+</div>
 
 <div class="project-detail-content">
 

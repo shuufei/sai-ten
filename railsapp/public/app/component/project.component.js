@@ -28,6 +28,10 @@ var ProjectComponent = (function () {
         var link = ["/project-detail", project.id];
         this.router.navigate(link);
     };
+    ProjectComponent.prototype.linkProjectList = function () {
+        var link = ["/projects"];
+        this.router.navigate(link);
+    };
     ProjectComponent = __decorate([
         core_1.Component({
             selector: "project",

@@ -38,6 +38,15 @@ var ProjectDetailComponent = (function () {
         var link = ["/result", this.project.id];
         this.router.navigate(link);
     };
+    ProjectDetailComponent.prototype.linkProjectList = function () {
+        var link = ["/projects"];
+        this.router.navigate(link);
+    };
+    ProjectDetailComponent.prototype.linkProject = function (id) {
+        var link = ["/project-detail", id];
+        console.log(id);
+        this.router.navigate(link);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', String)
