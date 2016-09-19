@@ -30,9 +30,11 @@
     <tr>
       <th>順位</th>
       <th class="mdl-data-table__cell--non-numeric">名前</th>
+      <!--
       <th>感動性</th>
       <th>実現性</th>
       <th>ワカモノ性</th>
+    -->
       <th>合計</th>
     </tr>
   </thead>
@@ -40,31 +42,15 @@
     <tr *ngFor="let member of memberOrder">
       <td>{{member.order}}</td>
       <td class="mdl-data-table__cell--non-numeric">{{member.name}}</td>
+      <!--
       <td>{{member.excitement}}</td>
       <td>{{member.possibility}}</td>
       <td>{{member.young}}</td>
+    -->
       <td>{{member.total}}</td>
     </tr>
   </tbody>
 </table>
   </div>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-<div *ngIf="project">
-{{project.id}}
-{{project.title}}
-</div>
-
-<div *ngIf="members">
-<p *ngFor="let member of members">{{member.name}}</p>
 </div>
