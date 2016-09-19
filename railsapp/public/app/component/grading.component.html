@@ -1,4 +1,8 @@
 <style>
+.grading-content {
+  padding-top: 70px;
+}
+
 .my-grading-input {
   margin: 10px auto 0 auto;
 }
@@ -21,21 +25,35 @@
 .my-grading-profile-image {
   height: 200px;
   width: 200px;
-  background: url('../../img/sai-account1.png') center / contain;
+  background: url('../../img/sai-icon.png') center / contain;
   background-repeat: no-repeat;
   margin: 0 auto 10px auto;
-  border: solid #bfbcbc 2px;
+  border: solid #bfbcbc 1px;
+  border-radius: 2%;
 }
 
 .my-grading-input-button {
   text-align: center;
   margin: 0 auto;
 }
+
+.button-wrapper {
+  text-align: center;
+}
+
+.my-button {
+  background-color: #dc8080;
+  margin: 0 50%;
+}
+
+.my-button:hover {
+  background-color: #de8e8e;
+}
 </style>
 
 
 
-<div class="mdl-grid" *ngIf="member">
+<div class="mdl-grid grading-content" *ngIf="member">
 <div class="my-grading-profile mdl-cell mdl-cell--4-col">
   <div class="my-grading-profile-image"></div>
   <div class="my-grading-profile-item"><h2 class="my-grading-profile-property">{{member.name}}</h2></div>
@@ -76,8 +94,9 @@
     <label>ワカモノ性</label>
   </div>
 </form>
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent my-grading-input-button">send</button>
-
+<div class="button-wrapper">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored my-button">送信</button>
+</div>
 </div>
 
 

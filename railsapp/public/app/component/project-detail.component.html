@@ -4,9 +4,24 @@
   top: 0px;
   background: #fafafa;
 }
-.my-div {
+.project-detail-content {
   height: 1000;
   padding: 5%;
+}
+
+.button-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.my-button {
+  background-color: #dc8080;
+  margin: 0 50%;
+  width: 200px;
+}
+
+.my-button:hover {
+  background-color: #de8e8e;
 }
 
 .my-header-title {
@@ -37,7 +52,7 @@
 .account-img {
   height: 160px;
   width: 100%;
-  background: url('../../img/sai-account1.png') center / contain;
+  background: url('../../img/sai-icon.png') center / contain;
   background-repeat: no-repeat;
 }
 
@@ -62,7 +77,10 @@
 }
 </style>
 
-<div class="my-div">
+<div class="project-detail-content">
+  <div class="button-wrapper">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored my-button">結果をみる</button>
+  </div>
 
 <div class="mdl-grid">
 <div class="demo-card-square mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col my-card" *ngFor="let member of members" (click)="showMember(member)">
@@ -89,4 +107,5 @@
   </div>
 </div>
 -->
+</div>
 </div>
