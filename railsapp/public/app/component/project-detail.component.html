@@ -5,6 +5,7 @@
   background: #fafafa;
 }
 .project-detail-content {
+  padding-top: 2%;
 }
 
 .button-wrapper {
@@ -78,12 +79,23 @@
 }
 
 .members-contents {
-  padding: 5%;
+  padding: 2% 5%;
   padding-top: 80px;
+}
+
+.project-info {
+  margin: 0 auto;
+  text-align: center;
 }
 </style>
 
 <div class="project-detail-content">
+
+  <div *ngIf="project" class="project-info">
+    <h2>{{project.title}}</h2>
+    <p>{{project.detail}}</p>
+  </div>
+
 
 
 <div class="button-wrapper">
