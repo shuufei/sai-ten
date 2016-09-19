@@ -9,9 +9,10 @@ export class ProjectService {
   ];
 
   private members: Member[] = [
-    { id: 1, name: "sai1", detail: "sai1 desu.yorosiku", order: 1 },
-    { id: 2, name: "sai2", detail: "sai2 desu.yorosiku", order: 2 },
-    { id: 3, name: "sai3", detail: "sai3 desu.yorosiku", order: 3 }
+    { id: 1, name: "sai1", detail: "sai1 desu.yorosiku", order: 1, image: "sai-account1" },
+    { id: 2, name: "sai2", detail: "sai2 desu.yorosiku", order: 2, image: "sai-account2" },
+    { id: 3, name: "sai3", detail: "sai3 desu.yorosiku", order: 3, image: "sai-account3" },
+    { id: 4, name: "sai4", detail: "sai4 desu.yorosiku", order: 4, image: "sai-account4" }
   ];
 
   private memberOrder: MemberOrder[] = [
@@ -66,6 +67,7 @@ export class Member {
   name: string;
   detail: string;
   order: number;
+  image: string;
 }
 
 export class MemberOrder {

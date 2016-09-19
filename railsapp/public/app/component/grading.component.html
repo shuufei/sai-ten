@@ -1,6 +1,6 @@
 <style>
 .grading-content {
-  padding: 20px 0 60px 0;;
+  padding: 2% 0 60px 0;;
 }
 
 .my-grading-input {
@@ -26,8 +26,6 @@
 .my-grading-profile-image {
   height: 200px;
   width: 200px;
-  background: url('../../img/sai-icon.png') center / contain;
-  background-repeat: no-repeat;
   margin: 0 auto 10px auto;
   border: solid #bfbcbc 1px;
   border-radius: 2%;
@@ -57,13 +55,30 @@
 .dummy-content {
   height: 100px;
 }
+
+.sai-account1 {
+  background: url('../../img/sai-account1.jpg') center / cover;
+  background-repeat: no-repeat;
+}
+.sai-account2 {
+  background: url('../../img/sai-account2.jpg') center / cover;
+  background-repeat: no-repeat;
+}
+.sai-account3 {
+  background: url('../../img/sai-account3.jpg') center / cover;
+  background-repeat: no-repeat;
+}
+.sai-account4 {
+  background: url('../../img/sai-account4.jpg') center / cover;
+  background-repeat: no-repeat;
+}
 </style>
 
 
 
 <div class="mdl-grid grading-content" *ngIf="member">
 <div class="my-grading-profile mdl-cell mdl-cell--4-col">
-  <div class="my-grading-profile-image"></div>
+  <div class="my-grading-profile-image {{member.image}}"></div>
   <div class="my-grading-profile-item"><h2 class="my-grading-profile-property">{{member.name}}</h2></div>
   <div class="my-grading-profile-item"><p class="my-grading-profile-property">{{member.detail}}</p></div>
 </div>

@@ -54,7 +54,22 @@
 .account-img {
   height: 160px;
   width: 100%;
-  background: url('../../img/sai-icon.png') center / contain;
+}
+
+.sai-account1 {
+  background: url('../../img/sai-account1.jpg') center / cover;
+  background-repeat: no-repeat;
+}
+.sai-account2 {
+  background: url('../../img/sai-account2.jpg') center / cover;
+  background-repeat: no-repeat;
+}
+.sai-account3 {
+  background: url('../../img/sai-account3.jpg') center / cover;
+  background-repeat: no-repeat;
+}
+.sai-account4 {
+  background: url('../../img/sai-account4.jpg') center / cover;
   background-repeat: no-repeat;
 }
 
@@ -104,7 +119,7 @@
 
 <div class="mdl-grid members-contents">
 <div class="demo-card-square mdl-card mdl-shadow--2dp mdl-cell mdl-cell--2-col my-card" *ngFor="let member of members" (click)="showMember(member)">
-  <div class="account-img"></div>
+  <div class="account-img {{member.image}}"></div>
   <div class="mdl-card__actions mdl-card--border">
     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
       {{member.name}}
