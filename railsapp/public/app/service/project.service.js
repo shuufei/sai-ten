@@ -12,19 +12,32 @@ var core_1 = require("@angular/core");
 var ProjectService = (function () {
     function ProjectService() {
         this.projects = [
-            { title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
-            { title: "idea-son", detail: "sai2 desu.yorosiku" },
-            { title: "hacker", detail: "sai3 desu.yorosiku" }
+            { id: 1, title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
+            { id: 2, title: "idea-son", detail: "sai2 desu.yorosiku" },
+            { id: 3, title: "hacker", detail: "sai3 desu.yorosiku" }
         ];
         this.members = [
-            { id: 1, name: "sai1", detail: "sai1 desu.yorosiku" },
-            { id: 2, name: "sai2", detail: "sai2 desu.yorosiku" },
-            { id: 3, name: "sai3", detail: "sai3 desu.yorosiku" }
+            { id: 1, name: "sai1", detail: "sai1 desu.yorosiku", order: 1 },
+            { id: 2, name: "sai2", detail: "sai2 desu.yorosiku", order: 2 },
+            { id: 3, name: "sai3", detail: "sai3 desu.yorosiku", order: 3 }
+        ];
+        this.memberOrder = [
+            { id: 1, name: "sai1", order: 1, excitement: 5, possibility: 4, young: 4, total: 13 },
+            { id: 2, name: "sai2", order: 2, excitement: 2, possibility: 3, young: 4, total: 9 },
+            { id: 3, name: "sai3", order: 3, excitement: 5, possibility: 1, young: 2, total: 8 },
+            { id: 4, name: "sai4", order: 4, excitement: 1, possibility: 2, young: 2, total: 5 }
         ];
     }
     ProjectService.prototype.getProjects = function () {
         console.log(this.projects);
         return Promise.resolve(this.projects);
+    };
+    ProjectService.prototype.getProject = function (id) {
+        var project;
+        project = this.projects.find(function (project) { return project.id === id; });
+        console.log("projcet: ");
+        console.log(project);
+        return Promise.resolve(project);
     };
     ProjectService.prototype.getMembers = function (projectId) {
         return Promise.resolve(this.members);
@@ -39,6 +52,9 @@ var ProjectService = (function () {
         // return this.getMembers(1).then(
         //   members => members.find(member => member.id === id)
         // );
+    };
+    ProjectService.prototype.getMemberOrder = function () {
+        return Promise.resolve(this.memberOrder);
     };
     ProjectService = __decorate([
         core_1.Injectable(), 
@@ -59,4 +75,10 @@ var Member = (function () {
     return Member;
 }());
 exports.Member = Member;
+var MemberOrder = (function () {
+    function MemberOrder() {
+    }
+    return MemberOrder;
+}());
+exports.MemberOrder = MemberOrder;
 //# sourceMappingURL=project.service.js.map

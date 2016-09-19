@@ -1,0 +1,70 @@
+<style>
+.result-content {
+  padding: 2% 5%;
+}
+
+.project-info {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.member-order {
+  margin-top: 50px;
+}
+
+.my-order-table {
+  margin: 0 auto;
+}
+
+</style>
+
+<div class="result-content">
+  <div *ngIf="project" class="project-info">
+    <h2>{{project.title}}</h2>
+    <p>{{project.detail}}</p>
+  </div>
+
+  <div class="member-order" *ngIf="memberOrder">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--1dp my-order-table">
+  <thead>
+    <tr>
+      <th>順位</th>
+      <th class="mdl-data-table__cell--non-numeric">名前</th>
+      <th>感動性</th>
+      <th>実現性</th>
+      <th>ワカモノ性</th>
+      <th>合計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let member of memberOrder">
+      <td>{{member.order}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{member.name}}</td>
+      <td>{{member.excitement}}</td>
+      <td>{{member.possibility}}</td>
+      <td>{{member.young}}</td>
+      <td>{{member.total}}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="project">
+{{project.id}}
+{{project.title}}
+</div>
+
+<div *ngIf="members">
+<p *ngFor="let member of members">{{member.name}}</p>
+</div>

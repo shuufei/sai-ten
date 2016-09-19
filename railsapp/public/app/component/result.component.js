@@ -12,44 +12,33 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var router_2 = require("@angular/router");
 var project_service_1 = require("./../service/project.service");
-var ProjectDetailComponent = (function () {
-    function ProjectDetailComponent(projectService, router, route) {
+var ResultComponent = (function () {
+    function ResultComponent(projectService, router, route) {
         this.projectService = projectService;
         this.router = router;
         this.route = route;
-        this.title = "saiten";
     }
-    ProjectDetailComponent.prototype.ngOnInit = function () {
+    ResultComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
             var id = +params["id"];
             _this.projectService.getProject(id).then(function (project) { return _this.project = project; });
         });
-        console.log(this.project);
         this.projectService.getMembers(1).then(function (members) { return _this.members = members; });
-    };
-    ProjectDetailComponent.prototype.showMember = function (member) {
-        console.log(member);
-        var link = ["/grading", member.id];
-        this.router.navigate(link);
-    };
-    ProjectDetailComponent.prototype.showResult = function () {
-        console.log(this.project);
-        var link = ["/result", this.project.id];
-        this.router.navigate(link);
+        this.projectService.getMemberOrder().then(function (memberOrder) { return _this.memberOrder = memberOrder; });
     };
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', String)
-    ], ProjectDetailComponent.prototype, "title", void 0);
-    ProjectDetailComponent = __decorate([
+        __metadata('design:type', project_service_1.Project)
+    ], ResultComponent.prototype, "project", void 0);
+    ResultComponent = __decorate([
         core_1.Component({
-            selector: "my-project-detail",
-            templateUrl: "app/component/project-detail.component.html"
+            selector: "my-result",
+            templateUrl: "app/component/result.component.html"
         }), 
         __metadata('design:paramtypes', [project_service_1.ProjectService, router_2.Router, router_1.ActivatedRoute])
-    ], ProjectDetailComponent);
-    return ProjectDetailComponent;
+    ], ResultComponent);
+    return ResultComponent;
 }());
-exports.ProjectDetailComponent = ProjectDetailComponent;
-//# sourceMappingURL=project-detail.component.js.map
+exports.ResultComponent = ResultComponent;
+//# sourceMappingURL=result.component.js.map

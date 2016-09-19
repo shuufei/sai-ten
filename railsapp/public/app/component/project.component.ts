@@ -28,7 +28,7 @@ export class ProjectComponent implements OnInit {
     console.log("hoghoge");
     console.log(this.projects);
     console.log(project);
-    let link = ["/project-detail"];
+    let link = ["/project-detail", project.id];
     this.router.navigate(link);
   }
 }

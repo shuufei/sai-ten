@@ -6,6 +6,7 @@ import { AppComponent } from "./component/app.component";
 import { ProjectComponent } from "./component/project.component";
 import { ProjectDetailComponent } from "./component/project-detail.component";
 import { GradingComponent } from "./component/grading.component";
+import { ResultComponent } from "./component/result.component";
 
 import { ProjectService } from "./service/project.service";
 
@@ -21,7 +22,8 @@ import { routing } from "./app.routing";
     AppComponent,
     ProjectComponent,
     ProjectDetailComponent,
-    GradingComponent
+    GradingComponent,
+    ResultComponent
   ],
   providers: [
     ProjectService

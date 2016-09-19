@@ -25,7 +25,7 @@ var ProjectComponent = (function () {
         console.log("hoghoge");
         console.log(this.projects);
         console.log(project);
-        var link = ["/project-detail"];
+        var link = ["/project-detail", project.id];
         this.router.navigate(link);
     };
     ProjectComponent = __decorate([
