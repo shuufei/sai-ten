@@ -16,7 +16,54 @@
   margin: 0 auto;
 }
 
+.my-float-left {
+  float: left;
+}
+
+.my-float-clear {
+  clear: both;
+}
+
+.my-breadcrumb {
+  margin: 2% 2%;
+}
+
+.my-breadcrumb-item {
+  color: gray;
+  display: block;
+}
+
+.my-breadcrumb-link {
+  padding-top: 2px;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.button-wrapper {
+  padding: 20px 0 ;
+  text-align: center;
+}
+
+.my-back-button {
+  background-color: #fafafa;
+  color: gray;
+}
+
+.my-back-button:hover {
+  background-color: #dedede;
+}
+
 </style>
+
+<div class="my-breadcrumb">
+  <div class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProjectList()">ProjectList</div>
+  <i class="material-icons my-breadcrumb-item my-float-left">navigate_next</i>
+  <div *ngIf="project" class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProject(project.id)">{{project.title}}</div>
+  <i class="material-icons my-breadcrumb-item my-float-left">navigate_next</i>
+  <div *ngIf="project" class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkResult()">結果</div>
+</div>
+<div class="my-float-clear"></div>
+
 
 <div class="result-content">
   <div *ngIf="project" class="project-info">
@@ -51,6 +98,10 @@
     </tr>
   </tbody>
 </table>
+  </div>
+
+  <div class="button-wrapper">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored my-back-button" (click)="linkProject(project.id)">戻る</button>
   </div>
 
 </div>

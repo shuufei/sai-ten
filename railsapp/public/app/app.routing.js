@@ -19,7 +19,7 @@ var appRoutes = [
         component: project_detail_component_1.ProjectDetailComponent
     },
     {
-        path: "grading/:id",
+        path: "grading/:project_id/:member_id",
         component: grading_component_1.GradingComponent
     },
     {

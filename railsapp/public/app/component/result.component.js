@@ -27,6 +27,19 @@ var ResultComponent = (function () {
         this.projectService.getMembers(1).then(function (members) { return _this.members = members; });
         this.projectService.getMemberOrder().then(function (memberOrder) { return _this.memberOrder = memberOrder; });
     };
+    ResultComponent.prototype.linkProjectList = function () {
+        var link = ["/projects"];
+        this.router.navigate(link);
+    };
+    ResultComponent.prototype.linkProject = function (id) {
+        var link = ["/project-detail", id];
+        console.log(id);
+        this.router.navigate(link);
+    };
+    ResultComponent.prototype.linkResult = function () {
+        var link = ["/result", this.project.id];
+        this.router.navigate(link);
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', project_service_1.Project)

@@ -22,7 +22,7 @@ const appRoutes: Routes = [
     component: ProjectDetailComponent
   },
   {
-    path: "grading/:id",
+    path: "grading/:project_id/:member_id",
     component: GradingComponent
   },
   {

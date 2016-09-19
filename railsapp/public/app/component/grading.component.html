@@ -38,18 +38,23 @@
 
 .button-wrapper {
   text-align: center;
-  width: 100%;
-  position: absolute;
-  left: -30px;
 }
 
 .my-button {
   background-color: #dc8080;
-  margin: 0 50%;
 }
 
 .my-button:hover {
   background-color: #de8e8e;
+}
+
+.my-back-button {
+  background-color: #fafafa;
+  color: gray;
+}
+
+.my-back-button:hover {
+  background-color: #dedede;
 }
 
 .dummy-content {
@@ -72,9 +77,39 @@
   background: url('../../img/sai-account4.jpg') center / cover;
   background-repeat: no-repeat;
 }
+
+.my-float-left {
+  float: left;
+}
+
+.my-float-clear {
+  clear: both;
+}
+
+.my-breadcrumb {
+  margin: 2% 2%;
+}
+
+.my-breadcrumb-item {
+  color: gray;
+  display: block;
+}
+
+.my-breadcrumb-link {
+  padding-top: 2px;
+  cursor: pointer;
+  cursor: hand;
+}
 </style>
 
-
+<div class="my-breadcrumb">
+  <div class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProjectList()">ProjectList</div>
+  <i class="material-icons my-breadcrumb-item my-float-left">navigate_next</i>
+  <div *ngIf="project" class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProject(project.id)">{{project.title}}</div>
+  <i class="material-icons my-breadcrumb-item my-float-left">navigate_next</i>
+  <div *ngIf="member" class="my-float-left my-breadcrumb-item my-breadcrumb-link">{{member.name}}</div>
+</div>
+<div class="my-float-clear"></div>
 
 <div class="mdl-grid grading-content" *ngIf="member">
 <div class="my-grading-profile mdl-cell mdl-cell--4-col">
@@ -120,8 +155,12 @@
 <div class="button-wrapper">
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored my-button">送信</button>
 </div>
+</div>
+
+</div>
+
+<div class="button-wrapper">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored my-back-button" (click)="linkProject(project.id)">戻る</button>
+</div>
+
 <div class="dummy-content"></div>
-</div>
-
-
-</div>

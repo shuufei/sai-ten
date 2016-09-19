@@ -30,7 +30,7 @@ var ProjectDetailComponent = (function () {
     };
     ProjectDetailComponent.prototype.showMember = function (member) {
         console.log(member);
-        var link = ["/grading", member.id];
+        var link = ["/grading", this.project.id, member.id];
         this.router.navigate(link);
     };
     ProjectDetailComponent.prototype.showResult = function () {

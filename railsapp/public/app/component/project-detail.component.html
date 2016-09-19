@@ -10,15 +10,11 @@
 
 .button-wrapper {
   padding: 20px 0 ;
-  width: 100%;
-  position: absolute;
-  left: -100px;
   text-align: center;
 }
 
 .my-button {
   background-color: #dc8080;
-  margin: 0 50%;
   width: 200px;
 }
 
@@ -95,7 +91,7 @@
 
 .members-contents {
   padding: 2% 5%;
-  padding-top: 80px;
+  padding-top: 20px;
 }
 
 .project-info {
@@ -105,6 +101,10 @@
 
 .my-float-left {
   float: left;
+}
+
+.my-float-clear {
+  clear: both;
 }
 
 .my-breadcrumb {
@@ -121,14 +121,25 @@
   cursor: pointer;
   cursor: hand;
 }
+
+.my-back-button {
+  background-color: #fafafa;
+  color: gray;
+}
+
+.my-back-button:hover {
+  background-color: #dedede;
+}
 </style>
 
 <div class="my-breadcrumb">
   <div class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProjectList()">ProjectList</div>
   <i class="material-icons my-breadcrumb-item my-float-left">navigate_next</i>
   <div *ngIf="project" class="my-float-left my-breadcrumb-item my-breadcrumb-link" (click)="linkProject(project.id)">{{project.title}}</div>
-  <i class="material-icons my-breadcrumb-item">navigate_next</i>
+  <i class="material-icons my-breadcrumb-item my-float-left">navigate_next</i>
 </div>
+<div class="my-float-clear"></div>
+
 
 <div class="project-detail-content">
 
@@ -169,4 +180,8 @@
 </div>
 -->
 </div>
+</div>
+
+<div class="button-wrapper">
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored my-back-button" (click)="linkProjectList()">戻る</button>
 </div>

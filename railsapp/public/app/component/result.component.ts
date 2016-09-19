@@ -38,4 +38,20 @@ export class ResultComponent implements OnInit {
       memberOrder => this.memberOrder = memberOrder
     );
   }
+
+  linkProjectList(): void {
+    let link = ["/projects"];
+    this.router.navigate(link);
+  }
+
+  linkProject(id: number): void {
+    let link = ["/project-detail", id];
+    console.log(id);
+    this.router.navigate(link);
+  }
+
+  linkResult(): void {
+    let link = ["/result", this.project.id];
+    this.router.navigate(link);
+  }
 }
