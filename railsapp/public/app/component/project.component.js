@@ -32,6 +32,9 @@ var ProjectComponent = (function () {
         var link = ["/projects"];
         this.router.navigate(link);
     };
+    ProjectComponent.prototype.getHttpTest = function () {
+        this.projectService.httpTest();
+    };
     ProjectComponent = __decorate([
         core_1.Component({
             selector: "project",

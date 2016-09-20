@@ -1,4 +1,7 @@
 import { Injectable } from "@angular/core";
+import { Headers, Http } from "@angular/http";
+
+import "rxjs/add/operator/toPromise";
 
 @Injectable()
 export class ProjectService {
@@ -21,6 +24,11 @@ export class ProjectService {
     { id: 3, name: "sai3", order: 3, excitement: 5, possibility: 1, young: 2, total: 8},
     { id: 4, name: "sai4", order: 4, excitement: 1, possibility: 2, young: 2, total: 5}
   ];
+
+  private testUrl = "/member";  // URL to web api
+  private header = new Headers({"xhrFields": {"withCredentials": true}});
+
+  constructor(private http: Http) { }
 
   getProjects(): Promise<Project[]> {
     console.log(this.projects);
@@ -53,6 +61,15 @@ export class ProjectService {
 
   getMemberOrder(): Promise<MemberOrder[]> {
     return Promise.resolve(this.memberOrder);
+  }
+
+  httpTest(): void {
+//    this.http.get(this.testUrl, {headers: this.header}).toPromise().then(
+//      response => console.log(response)
+//    );
+    this.http.get(this.testUrl).toPromise().then(
+      response => console.log(response.json())
+    );
   }
 }
 

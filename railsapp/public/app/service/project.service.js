@@ -9,8 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/toPromise");
 var ProjectService = (function () {
-    function ProjectService() {
+    function ProjectService(http) {
+        this.http = http;
         this.projects = [
             { id: 1, title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
             { id: 2, title: "idea-son", detail: "sai2 desu.yorosiku" },
@@ -28,6 +31,8 @@ var ProjectService = (function () {
             { id: 3, name: "sai3", order: 3, excitement: 5, possibility: 1, young: 2, total: 8 },
             { id: 4, name: "sai4", order: 4, excitement: 1, possibility: 2, young: 2, total: 5 }
         ];
+        this.testUrl = "/member"; // URL to web api
+        this.header = new http_1.Headers({ "xhrFields": { "withCredentials": true } });
     }
     ProjectService.prototype.getProjects = function () {
         console.log(this.projects);
@@ -57,9 +62,15 @@ var ProjectService = (function () {
     ProjectService.prototype.getMemberOrder = function () {
         return Promise.resolve(this.memberOrder);
     };
+    ProjectService.prototype.httpTest = function () {
+        //    this.http.get(this.testUrl, {headers: this.header}).toPromise().then(
+        //      response => console.log(response)
+        //    );
+        this.http.get(this.testUrl).toPromise().then(function (response) { return console.log(response.json()); });
+    };
     ProjectService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], ProjectService);
     return ProjectService;
 }());

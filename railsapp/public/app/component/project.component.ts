@@ -36,4 +36,8 @@ export class ProjectComponent implements OnInit {
     let link = ["/projects"];
     this.router.navigate(link);
   }
+
+  getHttpTest(): void {
+    this.projectService.httpTest();
+  }
 }

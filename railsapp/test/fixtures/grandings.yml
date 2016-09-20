@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member_id: 1
+  rater_id: 1
+  excitement: 1
+  possibility: 1
+  youg: 1
+  total: 1
+
+two:
+  member_id: 1
+  rater_id: 1
+  excitement: 1
+  possibility: 1
+  youg: 1
+  total: 1
