@@ -10,7 +10,7 @@ import { Project } from "./../service/project.service";
 })
 
 export class ProjectComponent implements OnInit {
-  projects: Project[];
+  projects: any;
 
   constructor(
     private projectService: ProjectService,
@@ -18,10 +18,8 @@ export class ProjectComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log("oninit zone");
-    this.projectService.getProjects().then(
-      projects => this.projects = projects
-    );
+    console.log("ngOnInit ok");
+    this.projectService.getProjects().then(projects => this.projects = projects);
   }
 
   showProjectDetail(project: Project): void {
@@ -35,9 +33,5 @@ export class ProjectComponent implements OnInit {
   linkProjectList(): void {
     let link = ["/projects"];
     this.router.navigate(link);
-  }
-
-  getHttpTest(): void {
-    this.projectService.httpTest();
   }
 }

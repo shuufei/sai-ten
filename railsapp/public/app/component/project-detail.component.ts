@@ -14,8 +14,8 @@ export class ProjectDetailComponent implements OnInit {
   @Input()
 
   title: string = "saiten";
-  members: Member[];
-  project: Project;
+  members;
+  project;
 
   constructor(
     private projectService: ProjectService,
@@ -29,12 +29,13 @@ export class ProjectDetailComponent implements OnInit {
       this.projectService.getProject(id).then(
         project => this.project = project
       );
+
+      this.projectService.getMembers(id).then(
+        // members => console.log(members)
+        members => this.members = members
+      );
     });
     console.log(this.project);
-
-    this.projectService.getMembers(1).then(
-      members => this.members = members
-    );
   }
 
   showMember(member: Member): void {

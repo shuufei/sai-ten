@@ -11,14 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/toPromise");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
 var ProjectService = (function () {
     function ProjectService(http) {
         this.http = http;
-        this.projects = [
-            { id: 1, title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
-            { id: 2, title: "idea-son", detail: "sai2 desu.yorosiku" },
-            { id: 3, title: "hacker", detail: "sai3 desu.yorosiku" }
-        ];
         this.members = [
             { id: 1, name: "sai1", detail: "sai1 desu.yorosiku", order: 1, image: "sai-account1" },
             { id: 2, name: "sai2", detail: "sai2 desu.yorosiku", order: 2, image: "sai-account2" },
@@ -35,18 +32,45 @@ var ProjectService = (function () {
         this.header = new http_1.Headers({ "xhrFields": { "withCredentials": true } });
     }
     ProjectService.prototype.getProjects = function () {
-        console.log(this.projects);
+        var _this = this;
+        var url = "/project";
+        this.projects = this.http.get(url).toPromise().then(function (response) { return _this.projects = response.json(); });
         return Promise.resolve(this.projects);
     };
     ProjectService.prototype.getProject = function (id) {
         var project;
-        project = this.projects.find(function (project) { return project.id === id; });
-        console.log("projcet: ");
-        console.log(project);
+        var url = "/project";
+        url = url + "/" + id;
+        project = this.http.get(url).toPromise().then(function (response) { return project = response.json(); });
+        console.log(url);
         return Promise.resolve(project);
     };
-    ProjectService.prototype.getMembers = function (projectId) {
-        return Promise.resolve(this.members);
+    // getProject(id: number): Promise<Project> {
+    //   let project: Project;
+    //   project = this.projects.find(project => project.id === id);
+    //   console.log("projcet: ");
+    //   console.log(project);
+    //   return Promise.resolve(project);
+    // }
+    ProjectService.prototype.getProjectsByHttp = function () {
+        var url = "/project";
+        var projects;
+        var params = new http_1.URLSearchParams();
+        params.set("name", "hanashiro");
+        // projects = this.http.post(url, body, options).toPromise().then(
+        projects = this.http.get(url, { search: params }).toPromise().then(
+        // response => console.log(response.json())
+        function (response) { return projects = response.json(); });
+        // projects = this.http.get(url).map(this.extractData).catch(this.handleError);
+        return Promise.resolve(projects);
+    };
+    ProjectService.prototype.getMembers = function (id) {
+        var members;
+        var url = "/members";
+        url = url + "/" + id;
+        members = this.http.get(url).toPromise().then(function (response) { return members = response.json(); });
+        return Promise.resolve(members);
+        //    return Promise.resolve(this.members);
     };
     ProjectService.prototype.getMember = function (id) {
         var member;

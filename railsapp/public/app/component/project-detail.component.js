@@ -24,9 +24,11 @@ var ProjectDetailComponent = (function () {
         this.route.params.forEach(function (params) {
             var id = +params["id"];
             _this.projectService.getProject(id).then(function (project) { return _this.project = project; });
+            _this.projectService.getMembers(id).then(
+            // members => console.log(members)
+            function (members) { return _this.members = members; });
         });
         console.log(this.project);
-        this.projectService.getMembers(1).then(function (members) { return _this.members = members; });
     };
     ProjectDetailComponent.prototype.showMember = function (member) {
         console.log(member);

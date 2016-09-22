@@ -18,7 +18,7 @@ var ProjectComponent = (function () {
     }
     ProjectComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log("oninit zone");
+        console.log("ngOnInit ok");
         this.projectService.getProjects().then(function (projects) { return _this.projects = projects; });
     };
     ProjectComponent.prototype.showProjectDetail = function (project) {
@@ -31,9 +31,6 @@ var ProjectComponent = (function () {
     ProjectComponent.prototype.linkProjectList = function () {
         var link = ["/projects"];
         this.router.navigate(link);
-    };
-    ProjectComponent.prototype.getHttpTest = function () {
-        this.projectService.httpTest();
     };
     ProjectComponent = __decorate([
         core_1.Component({

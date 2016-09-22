@@ -1,15 +1,20 @@
 import { Injectable } from "@angular/core";
-import { Headers, Http } from "@angular/http";
+import { Headers, Http, Response, RequestOptions, RequestMethod, URLSearchParams } from "@angular/http";
 
 import "rxjs/add/operator/toPromise";
+import "rxjs/add/operator/map";
+import "rxjs/add/operator/catch";
 
 @Injectable()
 export class ProjectService {
-  private projects: Project[] = [
-    { id: 1,  title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
-    { id: 2,  title: "idea-son", detail: "sai2 desu.yorosiku" },
-    { id: 3,  title: "hacker", detail: "sai3 desu.yorosiku" }
-  ];
+  private projects;
+  // private projects: Project[] = [
+  //   { id: 1,  title: "wakamonokai1", detail: "sai1 desu.yorosiku" },
+  //   { id: 2,  title: "idea-son", detail: "sai2 desu.yorosiku" },
+  //   { id: 3,  title: "hacker", detail: "sai3 desu.yorosiku" }
+  // ];
+
+  private project;
 
   private members: Member[] = [
     { id: 1, name: "sai1", detail: "sai1 desu.yorosiku", order: 1, image: "sai-account1" },
@@ -30,21 +35,58 @@ export class ProjectService {
 
   constructor(private http: Http) { }
 
-  getProjects(): Promise<Project[]> {
-    console.log(this.projects);
+  getProjects(): any {
+    let url = "/project";
+    this.projects = this.http.get(url).toPromise().then(
+      response => this.projects = response.json()
+    );
     return Promise.resolve(this.projects);
   }
 
-  getProject(id: number): Promise<Project> {
-    let project: Project;
-    project = this.projects.find(project => project.id === id);
-    console.log("projcet: ");
-    console.log(project);
+  getProject(id: number): any {
+    let project;
+    let url = "/project";
+    url = url + "/" + id;
+    project = this.http.get(url).toPromise().then(
+      response => project = response.json()
+    );
+    console.log(url);
     return Promise.resolve(project);
   }
 
-  getMembers(projectId: number): Promise<Member[]> {
-    return Promise.resolve(this.members);
+  // getProject(id: number): Promise<Project> {
+  //   let project: Project;
+  //   project = this.projects.find(project => project.id === id);
+  //   console.log("projcet: ");
+  //   console.log(project);
+  //   return Promise.resolve(project);
+  // }
+
+  getProjectsByHttp(): any {
+    let url = "/project";
+    let projects;
+
+    let params = new URLSearchParams();
+    params.set("name", "hanashiro");
+
+    // projects = this.http.post(url, body, options).toPromise().then(
+    projects = this.http.get(url, {search: params}).toPromise().then(
+      // response => console.log(response.json())
+      response => projects = response.json()
+    );
+    // projects = this.http.get(url).map(this.extractData).catch(this.handleError);
+    return Promise.resolve(projects);
+  }
+
+  getMembers(id: number): any {
+    let members;
+    let url = "/members";
+    url = url + "/" + id;
+    members = this.http.get(url).toPromise().then(
+      response => members = response.json()
+    );
+    return Promise.resolve(members);
+//    return Promise.resolve(this.members);
   }
 
   getMember(id: number): Promise<Member> {
