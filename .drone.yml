@@ -4,3 +4,4 @@ env:
 script:
   - echo "fuga"
   - ls -al
+  - tree
