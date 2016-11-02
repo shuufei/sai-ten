@@ -1,7 +1,5 @@
-image: node0.8
-env:
-  - HOGE=hogehoge
-script:
-  - echo "fuga"
-  - ls -al
-  - tree
+build:
+  image: node0.8
+  commands:
+    - echo "fuga"
+    - tree
