@@ -1,0 +1,6 @@
+build:
+  image: node
+  commands:
+    - echo "fuga"
+    - cd a
+    - echo $DRONE_DIR
