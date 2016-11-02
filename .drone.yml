@@ -1,5 +1,5 @@
 build:
-  image: node0.8
+  image: node
   commands:
     - echo "fuga"
     - tree
