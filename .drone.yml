@@ -4,3 +4,4 @@ build:
     - echo "fuga"
     - cd a
     - echo $DRONE_DIR
+    - echo $DRONE_TAG
