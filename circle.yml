@@ -1,3 +1,6 @@
+machine:
+  environment:
+    HOGE: fuga
 test:
   override:
     - echo "hello circleci"
