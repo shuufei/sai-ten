@@ -1,0 +1,7 @@
+machine:
+  environment:
+    FUGA: fugahoge
+test:
+  override:
+    - echo "hello world"
+    - echo $FUGA
