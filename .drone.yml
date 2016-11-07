@@ -1,7 +1,6 @@
 build:
   image: node
-  commands: |
-    echo "eb ok!"
-    cd a
-    echo $DRONE_DIR
-    echo $DRONE_TAG
+  commands:
+    - echo "eb ok!"
+    - echo $DRONE_DIR
+    - echo $DRONE_TAG
