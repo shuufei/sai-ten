@@ -1,8 +1,7 @@
 build:
   image: node
   commands: |
-    echo "fuga"
+    echo "eb ok!"
     cd a
-    exit 1
     echo $DRONE_DIR
     echo $DRONE_TAG
