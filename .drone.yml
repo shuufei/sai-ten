@@ -4,3 +4,4 @@ build:
     - echo "eb ok!"
     - echo $DRONE_DIR
     - echo $DRONE_TAG
+    - echo "a"
